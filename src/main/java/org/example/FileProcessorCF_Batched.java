@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FileProcessorCF_Batched {
-    static int batchSize = 50000; // Batch boyutu
+    public static int batchSize = 50000; // Batch boyutu
     public static void processFile(String pathName) throws Exception {
         // Dosyayı aç
         File file = new File(pathName);
@@ -96,7 +96,7 @@ public class FileProcessorCF_Batched {
     }
 
     private static void writePayrollsToMysql(List<Payroll> payrollList) throws Exception {
-        // 100'lü gruplar halinde verileri veritabanına yaz
+        // batchSize sayısında gruplar halinde verileri veritabanına yaz
         String sql = "INSERT INTO fileprocessordb.payroll (RECORD_NBR, PAY_YEAR, DEPARTMENT_NO, DEPARTMENT_TITLE, JOB_CLASS_PGRADE, JOB_TITLE, EMPLOYMENT_TYPE, JOB_STATUS, MOU, MOU_TITLE, REGULAR_PAY, OVERTIME_PAY, ALL_OTHER_PAY, TOTAL_PAY, CITY_RETIREMENT_CONTRIBUTIONS, BENEFIT_PAY, GENDER, ETHNICITY) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         // Statement nesnesi oluştur
