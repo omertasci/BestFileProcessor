@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.time.Duration;
 import java.time.Instant;
 
-public class PayrollTester {
+public class PayrollTest {
 
     String pathName;
     @Before

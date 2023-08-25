@@ -3,7 +3,10 @@ import org.junit.Test;
 
 import java.util.Objects;
 
-public class PayrollUtilityTester {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class PayrollUtilityTest {
 
     @Test
     public void testArrayTokenSize(){
@@ -11,6 +14,7 @@ public class PayrollUtilityTester {
         String testStr = "aaa;bbb;ccc";
         String[] testArr = testStr.split(";");
         System.out.println(StringUtils.defaultIfBlank(testArr[3], ""));
+        assertEquals("", StringUtils.defaultIfBlank(testArr[3], ""));
     }
 
     @Test
@@ -19,6 +23,7 @@ public class PayrollUtilityTester {
         String testStr = "aaa;bbb;ccc";
         String[] testArr = testStr.split(";");
         System.out.println(isValidIndex(testArr, 3));
+        assertTrue(isValidIndex(testArr, 3));
     }
 
     public static boolean isValidIndex(String[] arr, int index) {
